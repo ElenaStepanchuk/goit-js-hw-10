@@ -9,9 +9,6 @@ const DEBOUNCE_DELAY = 300;
 const input = document.querySelector('input#search-box');
 const aboutCountry = document.querySelector('.country-info');
 
-console.log(input);
-console.log(aboutCountry);
-
 input.addEventListener('input', debounce(handleInputCountry, DEBOUNCE_DELAY));
 
 function handleInputCountry() {
@@ -32,11 +29,6 @@ function handleShowCountryList(array) {
     return aboutCountry.innerHTML = handleCreateCountryList(array)
     }
     return aboutCountry.innerHTML = handleCreateAboutCountryList(array);
-}
-
-function handleWrongCountryList(error) {
-    console.log(error)
-    return aboutCountry.innerHTML = ``
 }
 
 function handleCreateCountryList(array) {
@@ -67,4 +59,9 @@ function handleCreateAboutCountryList(array) {
         </li>` : ``}
       </ul>`
     }).join("")
+}
+
+function handleWrongCountryList(error) {
+    console.log(error)
+    return aboutCountry.innerHTML = ``
 }

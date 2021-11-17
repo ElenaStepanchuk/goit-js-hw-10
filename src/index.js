@@ -25,7 +25,7 @@ function handleShowCountryList(array) {
         aboutCountry.innerHTML = ``;
     return Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
     }
-    if (array.length >= 2) {    
+    if (array.length >= 2) {
     return aboutCountry.innerHTML = handleCreateCountryList(array)
     }
     return aboutCountry.innerHTML = handleCreateAboutCountryList(array);
@@ -35,7 +35,7 @@ function handleCreateCountryList(array) {
     return array.map(({flags, name}) => {
         return `<p class="name-country">
     <img src="${flags.svg}" alt="" width="20px" height="20px">
-      ${name.official}
+      ${name}
       </p>`
     }).join("")
 }
@@ -45,7 +45,7 @@ function handleCreateAboutCountryList(array) {
   return array.map(({ flags, name, capital, population, languages }) => {
         return `<h1 class="name-country">
     <img src="${flags.svg}" alt="" width="20px" height="20px">
-      ${name.official}
+      ${name}
       </h1>
       <ul class="list">
       ${capital ? `<li class="country-info">
@@ -61,7 +61,6 @@ function handleCreateAboutCountryList(array) {
     }).join("")
 }
 
-function handleWrongCountryList(error) {
-    console.log(error)
-    return aboutCountry.innerHTML = ``
+function handleWrongCountryList() {
+return Notiflix.Notify.failure("Oops, there is no country with that name")
 }

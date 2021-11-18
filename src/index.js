@@ -43,8 +43,7 @@ function handleCreateCountryList(array) {
 
 function handleCreateAboutCountryList(array) {
   return array.map(({ flags, name, capital, population, languages }) => {
-    console.log(Object.values(languages))
-        return `<h1 class="name-country">
+         return `<h1 class="name-country">
     <img src="${flags.svg}" alt="" width="20px" height="20px">
       ${name}
       </h1>
@@ -55,8 +54,8 @@ function handleCreateAboutCountryList(array) {
               ${population ? `<li class="country-info">
           <span>Population:</span> ${population}
         </li>` : ``}
-              ${Object.values(languages) ? `<li class="country-info">
-          <span>Languages:</span> ${Object.values(languages)}
+              ${Object.values(languages[0].nativeName) ? `<li class="country-info">
+          <span>Languages:</span> ${Object.values(languages[0].nativeName).join('')}
         </li>` : ``}
       </ul>`
     }).join("")

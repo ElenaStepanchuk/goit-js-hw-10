@@ -43,6 +43,7 @@ function handleCreateCountryList(array) {
 
 function handleCreateAboutCountryList(array) {
   return array.map(({ flags, name, capital, population, languages }) => {
+    console.log(Object.values(languages))
         return `<h1 class="name-country">
     <img src="${flags.svg}" alt="" width="20px" height="20px">
       ${name}
